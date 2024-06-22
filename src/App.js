@@ -1,9 +1,9 @@
-import About from "./Components/About";
+// import About from "./Components/About";
 import { useState } from "react";
 import Navbar from "./Components/Navbar";
 import TextForm from "./Components/TextForm";
 import Alert from "./Components/Alert";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -42,14 +42,13 @@ function App() {
     }
   }
   return (
-    <BrowserRouter>
+    <div>
       <Navbar title="Text Utils" mode={mode} handleOnChange={handleOnChange} btnText={btnText} handleColorBackground={handleColorBackground} />
       {alert && <Alert alert={alert} />}
-      <Routes>
-        <Route exact path="/" element={<TextForm heading="Enter the text to analyze below" mode={mode} showSetAlert={showSetAlert} />} />
-        <Route exact path="/about" element={<About />} />
-      </Routes>
-    </BrowserRouter>
+      <TextForm heading="Enter the text to analyze below" mode={mode} showSetAlert={showSetAlert} />
+      {/* <About /> */}
+    </div>
+
   )
 }
 
